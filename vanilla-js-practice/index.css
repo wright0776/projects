@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.blueButton {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    background: linear-gradient(cyan, blue, cyan);
+}
+.blueButton:active {
+    background: linear-gradient(rgb(0, 240, 240), rgb(0, 0, 240), rgb(0, 240, 240));
+}
+.circleContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    justify-items: center;
+}
+.redCircle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: red;
+}
