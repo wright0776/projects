@@ -1,10 +1,17 @@
-const path = require('path');
+var path = require('path');
 
 module.exports = {
-
-    entry: './src/index.js',
+    mode: 'production',
+    entry: './src',
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'my-first-bundle.js'
+        filename: 'bundle.js'
+    },
+    module: {
+        loaders: [{
+          test: /\.js$/,
+          loaders: ['react-hot', 'babel'],
+          include: path.join(__dirname, 'src')
+        }]
     }
 };
