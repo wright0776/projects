@@ -1,11 +1,29 @@
-@import 'variables';
-@import 'mixins';
+@import 'partials/functions';
+@import 'partials/variables';
+@import 'partials/mixins';
 
+@include google-font("Alegreya+Sans");
+@include google-font("Titillium+Web");
 @include fancy-links;
+
+.error {
+    color: red;
+}
+
+.critical {
+    @extend .error;
+    bottom: 1px solid red;
+    font-weight: bold;
+}
 
 body {
     font-family: $text-font;
     color: $text-color;
+    font-size: em(18px);
+
+    @include large-screens {
+        font-size: 125%;
+    }
 }
 
 h1,
@@ -25,13 +43,41 @@ p {
 
 a {
     color: $link-color;
-}
 
-.warning-button {
+    &:hover {
+        color: darken($color: $link-color, $amount: 15%)
+    }
+}
+%highlight {
+    font-style: italic;
+}
+.sub-title {
+    @extend %highlight;
+    @extend .foo !optional;
+    font-size: em(20px);
+}
+@mixin warning-button {
     @include warning;
-    padding: 8px 12px;
+    padding: 10px 12px;
 }
 
+.cta-button {
+    @include warning-button;
+    @extend .error;
+    @include rounded;
+    font-weight: bold;
+}
+.super-cta-button {
+    @extend .cta-button;
+    font-size: em(20px);
+}
+@include apply-to-ie-6 {
+    body {
+        font-size: 125%;
+        color: green;
+        background-color: brown;
+    }
+}
 .header {
     @include box($border: 3px solid #900, $radius: 12px);
     @include box-shadow(2px 0 4px #999, 1px 1px 6px orange);
@@ -43,7 +89,14 @@ a {
         }
         a {
             color: $menu-item-color;
-            
+            padding: 6px 8px;
+            border-bottom: 1px solid transparentize($color: #fefefe, $amount: 1);
+            transition: border-bottom .5s;
+            transition-timing-function: ease-in-out;
+
+            &:hover {
+                border-bottom: 1px solid opacify($color: #fefefe, $amount: .5);
+            }
         }
     }
     .logo {}
@@ -51,13 +104,34 @@ a {
 
 .main {
     width: $content-width;
+    @include large-screens {
+        width: auto;
+        max-width: $content-width;
+    }
     margin-left: auto;
     margin-right: auto;
-    .content {}
-    .sidebar {}
+    .content {
+        float: left;
+        width: 6*$col;
+    }
+    .sidebar {
+        float: right;
+        width: 2*$col;
+
+        li {
+            list-style-type: none;
+            padding: em(16px) em(20px);
+            border-bottom: 1px dashed #999;
+
+            &:hover {
+                background-color: #efefef;
+            }
+        }
+    }
 }
 
 .footer {
+    clear: both;
     height: $footer-height;
     background-color: $ternary-color;
 }

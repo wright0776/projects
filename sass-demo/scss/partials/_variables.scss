@@ -7,10 +7,10 @@ $link-color: $secondary-color;
 $menu-item-color: white;
 
 // === FONTS ===
-$text-font: Verdana,
+$text-font: "Alegreya Sans",
 Arial,
 sans-serif;
-$headline-font: 'Palatino Linotype',
+$headline-font: 'Titillium Web',
 Georgia,
 serif;
 
@@ -18,3 +18,4 @@ serif;
 $content-width: 960px;
 $header-height: 60px;
 $footer-height: 90px;
+$col: col-width($columns: 8);
