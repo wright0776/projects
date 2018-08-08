@@ -10,7 +10,7 @@ a {
 }
 
 .critical {
-  bottom: 1px solid red;
+  bottom: 1px solid violet;
   font-weight: bold;
 }
 
