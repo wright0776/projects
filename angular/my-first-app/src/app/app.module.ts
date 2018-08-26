@@ -8,6 +8,7 @@ import { ServersComponent } from './servers/servers.component';
 import { WarningAlertComponent } from './warning-alert/warning-alert.component';
 import { SuccessAlertComponent } from './success-alert/success-alert.component';
 import { UsernameInputComponent } from './username-input/username-input.component';
+import { DisplayDetailsComponent } from './display-details/display-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UsernameInputComponent } from './username-input/username-input.componen
     ServersComponent,
     WarningAlertComponent,
     SuccessAlertComponent,
-    UsernameInputComponent
+    UsernameInputComponent,
+    DisplayDetailsComponent
   ],
   imports: [
     BrowserModule,

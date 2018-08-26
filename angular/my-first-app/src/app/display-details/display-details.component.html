@@ -1,0 +1,13 @@
+<hr>
+<button
+  class="btn btn-primary"
+  (click)="onDisplayDetails()"
+>Display Details</button>
+<p *ngIf="detailsDisplayed">Details: abc 123</p>
+<p [ngModel]>Clicks: {{ clicks }}</p>
+<div 
+  *ngFor="let timestamp of timestamps; let i = index"
+  [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+  [ngClass]="{'white-text': i >= 4}"
+  >{{ timestamp }}</div>
+<hr>
